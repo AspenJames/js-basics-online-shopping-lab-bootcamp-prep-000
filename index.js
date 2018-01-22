@@ -60,20 +60,20 @@ function removeFromCart(item) {
   }
   for(let i=0;i<keys.length;i++){
     if(keys[i]==item){
-      check = true
+      check = true;
     }
   }
   if(check===true){
     for(let i=0;i<cart.length;i++){
       if(cart[i].hasOwnProperty(item)===true){
         if(i===0){
-          cart = cart.shift()
+          cart = cart.shift();
         }else if(i===cart.length-1){
-          cart = cart.pop()
+          cart = cart.pop();
         }else{
           var slice = cart.slice(0,i);
-          slice.push(cart.slice(i+1, cart.length))
-          cart = slice
+          slice.push(cart.slice(i+1, cart.length));
+          cart = slice;
         }
         return cart
       }
