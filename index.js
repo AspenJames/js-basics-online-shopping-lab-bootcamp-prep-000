@@ -66,7 +66,7 @@ function removeFromCart(item) {
     }
   }
   if(check===true){
-    cart = cart.slice(0,index)+cart.slice(index+1,cart.length)
+    delete cart[index]
     return cart
   }else{
     console.log("That item is not in your cart.")
