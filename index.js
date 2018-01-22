@@ -66,8 +66,14 @@ function removeFromCart(item) {
   if(check===true){
     for(let i=0;i<cart.length;i++){
       if(cart[i].hasOwnProperty(item)===true){
-        cart = cart.slice(0,i)+cart.slice(i+1,cart.length);
-        return cart;
+        if(i===0){
+          cart = cart.shift()
+        }else if(i===cart.length){
+          cart = cart.pop()
+        }else{
+          cart = cart.slice(0,i)+cart.slice(i+1,cart.length)
+        }
+        return cart
       }
     }
   }else{
