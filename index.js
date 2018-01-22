@@ -65,7 +65,7 @@ function removeFromCart(item) {
   }
   if(check===true){
     for(let i=0;i<cart.length;i++){
-      if(cart[i].hasOwnProperty(item)===true){
+      if(keys[i]==item){
         delete cart[i]
       }
       return cart
