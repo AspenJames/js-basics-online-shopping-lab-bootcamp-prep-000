@@ -64,10 +64,10 @@ function removeFromCart(item) {
     }
   }
   if(check===true){
-    for(let i=0;i<cart.length-1;i++){
+    for(let i=0;i<cart.length;i++){
       if(cart[i].hasOwnProperty(item)===true){
-        //cart = cart.slice(0,i)+cart.slice(i+1,cart.length);
-        delete cart[i];
+        cart = cart.slice(0,i)+cart.slice(i+1,cart.length);
+        //delete cart[i];
         return cart;
       }
     }
