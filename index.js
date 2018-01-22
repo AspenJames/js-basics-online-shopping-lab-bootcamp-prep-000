@@ -54,8 +54,22 @@ function total() {
 
 function removeFromCart(item) {
   var keys = []
+  var check = false
+  var index = ''
   for(var obj in cart){
     keys.push(Object.keys(cart[obj]));
+  }
+  for(let i=0;i<keys.length;i++){
+    if(keys[i]===item){
+      check = true
+      index = i
+    }
+  }
+  if(check===true){
+    cart = cart.slice(0,index)+cart.slice(index+1,cart.length)
+    return cart
+  }else{
+    console.log("That item is not in your cart.")
   }
 }
 
