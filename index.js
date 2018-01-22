@@ -66,8 +66,12 @@ function removeFromCart(item) {
     }
   }
   if(check===true){
-    delete cart[index]
-    return cart
+    for(let i=0;i<cart.length;i++){
+      if(cart[i].hasOwnProperty(item)===true){
+        cart = cart.slice(0,i)+cart.slice(i+1,cart.length)
+      }
+      return cart
+    }
   }else{
     console.log("That item is not in your cart.")
   }
