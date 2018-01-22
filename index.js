@@ -72,8 +72,8 @@ function removeFromCart(item) {
           cart.pop();
         }else{
           var slice = cart.slice(0,i);
-          slice.push(cart.slice(i+1, cart.length));
-          cart = slice;
+          var slice2 = (cart.slice(i+1, cart.length));
+          cart = slice.concat(slice2);
         }
         return cart;
       }
