@@ -17,41 +17,22 @@ function addToCart(item) {
   return cart
 }
 
-/*function viewCart() {
-  var message = "";
-  var keys = [];
-  var values = [];
-  for(var obj in cart){
-    keys.push(Object.keys(cart[obj]));
-    values.push(cart[obj]);
-    }
-  if(cart.length === 0){
-    console.log("Your shopping cart is empty.")
-  }else if(cart.length === 1){
-    console.log(`In your cart, you have ${keys[0]} at $${values[0]}.`)
-  }else{
-    for(let i=0;i<cart.length-1;i++){
-      message = message + `${keys[i]} at $${values[i]}, `
-    }
-    message = message + `and ${keys[cart.length-1]} at $${values[cart.length-1]}.`
-    console.log(`In your cart, you have ${message}.`)
-  }
-}*/
-
 function viewCart(){
   var message = "";
   var keys = [];
   var values = [];
   for(var obj in cart){
     keys.push(Object.keys(cart[obj]));
-    values.push(cart[obj]);
+    values.push(Object.values(cart[obj]));
   }
-  if(cart.length > 1){
-    for(let i=0;i<cart.length;i++){
+  if(cart.length > 2){
+    for(let i=0;i<cart.length-1;i++){
       message += `${keys[i]} at $${values[i]}, `;
     }
     message += `and ${keys[(cart.length)-1]} at $${values[(cart.length)-1]}.`
     console.log(`In your cart, you have ${message}`)
+  }else if(cart.length === 2){
+    console.log(`In your cart, you have ${keys[0]} at $${values[0]} and ${keys[1]} at $${values[1]}.`);
   }else if(cart.length === 1){
     console.log(`In your cart, you have ${keys[0]} at $${values[0]}.`)
   }else{
@@ -60,11 +41,26 @@ function viewCart(){
 }
 
 function total() {
-  // write your code here
+  var prices = [];
+  var total = 0
+  for(var obj in cart){
+    prices.push(Object.values(cart[obj]));
+  }
+  for(let i=0;i<prices.length;i++){
+    total += parseInt(prices[i]);
+  }
+  return total;
 }
 
 function removeFromCart(item) {
-  // write your code here
+  for(let i=0;i<cart.length-1; i++){
+    if(cart[i].hasOwnProperty(item)===true){
+      delete cart[i];
+      return cart;
+    }else{
+      console.log("That item is not in your cart.");
+    }
+  }
 }
 
 function placeOrder(cardNumber) {
