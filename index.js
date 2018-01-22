@@ -59,7 +59,7 @@ function removeFromCart(item) {
     keys.push(Object.keys(cart[obj]));
   }
   for(let i=0;i<keys.length;i++){
-    if(keys[i]===item){
+    if(keys[i]==item){
       check = true
     }
   }
