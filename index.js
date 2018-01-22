@@ -53,6 +53,8 @@ function total() {
 }
 
 function removeFromCart(item) {
+  var keys = []
+  
   
 }
 
