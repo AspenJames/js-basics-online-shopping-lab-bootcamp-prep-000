@@ -54,8 +54,9 @@ function total() {
 
 function removeFromCart(item) {
   var keys = []
-  
-  
+  for(var obj in cart){
+    keys.push(Object.keys(cart[obj]));
+  }
 }
 
 function placeOrder(cardNumber) {
